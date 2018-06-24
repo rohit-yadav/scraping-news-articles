@@ -25,3 +25,10 @@ import matplotlib.pyplot as plt
 
 get_ipython().run_line_magic('matplotlib', 'inline')
 
+
+# In[3]:
+
+
+# Jagaran Newspaper's official url
+url = "https://www.jagran.com"
+
