@@ -32,3 +32,20 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # Jagaran Newspaper's official url
 url = "https://www.jagran.com"
 
+
+# In[4]:
+
+
+# Function to request a link
+def request_url(link):
+    """
+    It takes a url and returns the html as string.
+    """
+    ## Slow things down ## 
+    ## Let the site breath ##
+    time.sleep(2)
+    
+    response = requests.get(link)
+    html = response.text
+    return html
+
