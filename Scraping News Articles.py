@@ -49,3 +49,16 @@ def request_url(link):
     html = response.text
     return html
 
+
+# In[5]:
+
+
+# Function to parse html
+def parse_html(to_parse):
+    """
+    It takes a string, then parse it.
+    Finally, it retuns a soup object.
+    """
+    soup = bs4.BeautifulSoup(to_parse, 'html.parser')
+    return soup
+
