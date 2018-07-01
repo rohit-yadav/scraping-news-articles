@@ -11879,6 +11879,38 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to collect all sections links</span>
+<span class="c1"># Like world news, national news ...</span>
+
+<span class="k">def</span> <span class="nf">all_section</span><span class="p">(</span><span class="n">main_url</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It takes a main url of the newspaper and then</span>
+<span class="sd">    finds almost all the sections in the newspaper.</span>
+<span class="sd">    Finally, it returns the section which we will scrap.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">parse_html</span><span class="p">(</span><span class="n">request_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+    <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;MainLMenu tab&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ul</span>
+    <span class="n">section_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">):</span>
+        <span class="n">section_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+    <span class="c1"># Remove the section which we will not consider</span>
+    <span class="c1"># Like the video section and others</span>
+    <span class="n">remove</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">remove</span><span class="p">:</span>
+        <span class="n">section_list</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">section_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">section_list</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
