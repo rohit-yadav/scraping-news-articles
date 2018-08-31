@@ -87,3 +87,17 @@ def all_section(main_url):
         section_list.remove(section_list[i])
     return section_list
 
+
+# In[7]:
+
+
+# All section url (half-urls)
+section_urls = all_section(url)
+
+
+# In[8]:
+
+
+# Checking the sections urls
+section_urls
+
