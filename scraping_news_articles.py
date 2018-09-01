@@ -63,7 +63,7 @@ def parse_html(to_parse):
     return soup
 
 
-# In[6]:
+# In[9]:
 
 
 # Function to collect all sections links
@@ -101,3 +101,7 @@ section_urls = all_section(url)
 # Checking the sections urls
 section_urls
 
+
+# **Orientation of the section pages**
+# 
+# In this newspaper there are basically two types of layouts: Grid View and List View. So we will filter the section of the grid and list view seperately. As depending upon the layouts the html fromat cahges, therefore we will have to scrap them differently.
