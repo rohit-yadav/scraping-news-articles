@@ -63,7 +63,7 @@ def parse_html(to_parse):
     return soup
 
 
-# In[9]:
+# In[6]:
 
 
 # Function to collect all sections links
@@ -106,7 +106,7 @@ section_urls
 # 
 # In this newspaper there are basically two types of layouts: Grid View and List View. So we will filter the section of the grid and list view seperately. As depending upon the layouts the html fromat cahges, therefore we will have to scrap them differently.
 
-# In[11]:
+# In[9]:
 
 
 # Keep url of the section which has Grid layout
@@ -116,7 +116,7 @@ grid_layout_urls = [3, 4, 6, 7, 8, 9]
 grid_urls = []
 
 
-# In[12]:
+# In[10]:
 
 
 ## Keep url of the section, which has linear layout(List) view
@@ -126,7 +126,7 @@ list_layout_urls = [0, 1, 5]
 list_urls = []
 
 
-# In[13]:
+# In[11]:
 
 
 # Extracting only Gride View section page urls
@@ -134,7 +134,7 @@ for filter_url in grid_layout_urls:
     grid_urls.append(section_urls[filter_url])
 
 
-# In[14]:
+# In[12]:
 
 
 # Extracting only List View section page urls
@@ -142,21 +142,21 @@ for filter_url in list_layout_urls:
     list_urls.append(section_urls[filter_url])
 
 
-# In[15]:
+# In[13]:
 
 
 # Checking the Grid View urls
 grid_urls
 
 
-# In[16]:
+# In[14]:
 
 
 # Checking List view urls
 list_urls
 
 
-# In[17]:
+# In[15]:
 
 
 # Function to build complete url
@@ -172,7 +172,7 @@ def complete_url(half_url):
     return full_url
 
 
-# In[18]:
+# In[16]:
 
 
 # To store comple urls of the Grid View
@@ -182,7 +182,7 @@ final_grid_urls =[]
 final_list_urls =[]
 
 
-# In[19]:
+# In[17]:
 
 
 # Converting half urls to complete urls - Grid View
@@ -190,7 +190,7 @@ for url_get in grid_urls:
     final_grid_urls.append(complete_url(url_get))
 
 
-# In[20]:
+# In[18]:
 
 
 # Converting half urls to complete urls - List View
@@ -198,21 +198,21 @@ for url_set in list_urls:
     final_list_urls.append(complete_url(url_set))
 
 
-# In[21]:
+# In[19]:
 
 
 # Checking the full urls - Grid View
 final_grid_urls
 
 
-# In[22]:
+# In[20]:
 
 
 # Checking the full urls - List View
 final_list_urls
 
 
-# In[23]:
+# In[21]:
 
 
 # Check for valid urls
@@ -226,4 +226,31 @@ def valid_url(url):
         return True
     except Exception as e:
         return False
+
+
+# In[22]:
+
+
+# Collect article uls only for Grid view sections
+def collect(page_urls):
+    """
+    Takes a list of urls which has a grid view layout,
+    then it extracts the urls of the articles from it
+    and then it returns it.
+    """
+    print("Extracting article urls from the following sections:")
+    
+    all_urls = set()
+    for page_url in page_urls:
+        print(page_url)
+        soup_page = parse_html(request_url(page_url))
+        for div in soup_page.find_all(class_="h3"):
+            sec_head_href = div.find("a").get("href")
+            # Checks if the url is valid
+            # Add only if the url is valid
+            if valid_url(sec_head_href):
+                all_urls.add(sec_head_href)
+            else:
+                all_urls.add(complete_url(sec_head_href))
+    return all_urls
 
