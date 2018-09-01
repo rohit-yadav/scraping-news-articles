@@ -211,3 +211,19 @@ final_grid_urls
 # Checking the full urls - List View
 final_list_urls
 
+
+# In[23]:
+
+
+# Check for valid urls
+def valid_url(url):
+    """
+    Takes an url and checks if the urls is valid.
+    Returns a boolearn value.
+    """
+    try:
+        urllib2.urlopen(url)
+        return True
+    except Exception as e:
+        return False
+
