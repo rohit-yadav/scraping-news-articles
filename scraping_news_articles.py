@@ -254,3 +254,17 @@ def collect(page_urls):
                 all_urls.add(complete_url(sec_head_href))
     return all_urls
 
+
+# In[23]:
+
+
+# Function call to collect all article urls from Grid View Sections
+all_urls = collect(final_grid_urls)
+
+
+# In[24]:
+
+
+# Count the number of uniques aritcles urls
+len(all_urls)
+
