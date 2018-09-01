@@ -155,3 +155,19 @@ grid_urls
 # Checking List view urls
 list_urls
 
+
+# In[17]:
+
+
+# Function to build complete url
+# Returns a string
+def complete_url(half_url):
+    """
+    This takes a second half of the url as input
+    and then it adds the first part of the url.
+    Finally it returns a complete url.
+    """
+   # Join the url with the href of world news
+    full_url = url + half_url
+    return full_url
+
