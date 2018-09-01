@@ -171,3 +171,43 @@ def complete_url(half_url):
     full_url = url + half_url
     return full_url
 
+
+# In[18]:
+
+
+# To store comple urls of the Grid View
+final_grid_urls =[]
+
+# To store comple urls of the List View
+final_list_urls =[]
+
+
+# In[19]:
+
+
+# Converting half urls to complete urls - Grid View
+for url_get in grid_urls:
+    final_grid_urls.append(complete_url(url_get))
+
+
+# In[20]:
+
+
+# Converting half urls to complete urls - List View
+for url_set in list_urls:
+    final_list_urls.append(complete_url(url_set))
+
+
+# In[21]:
+
+
+# Checking the full urls - Grid View
+final_grid_urls
+
+
+# In[22]:
+
+
+# Checking the full urls - List View
+final_list_urls
+
