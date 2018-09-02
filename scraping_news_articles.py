@@ -339,3 +339,10 @@ def navigator(navigate_url):
 # Function call to collect the links of different pages of the sections - List View sections only
 aditional_url_set = navigator(final_list_urls)
 
+
+# In[30]:
+
+
+# Checking the length of the adtional urls from the pages of sections
+# len(aditional_url_set)
+
