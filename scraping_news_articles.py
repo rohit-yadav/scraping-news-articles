@@ -433,3 +433,7 @@ text_df = pd.DataFrame(article_text_list)
 
 text_df.to_csv("articles_500.csv")
 
+
+# ## Conclusion
+# 
+# Atlest 500 aritcle has been extracted from the Jagaran Newspaper with a crawler and exported into a csv file.
