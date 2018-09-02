@@ -408,3 +408,7 @@ def article_text(article_urls):
         text.append(div.get_text())
     return text
 
+
+# **Note:** *The below cell will take more than 16 minitus to execute.*
+# 
+# As we have to let the Jagran newspaper breath. We have given a delay of 2 seconds for extracting a article. So to extract 500 articles it will take atleast 1000 seconds.
