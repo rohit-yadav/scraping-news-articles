@@ -360,3 +360,10 @@ aditional_url_list = list(aditional_url_set)
 # Extracting article lists from the additional urls list
 all_urls = linear_layout_page(aditional_url_list)
 
+
+# In[33]:
+
+
+# Length of all urls
+# len(all_urls)
+
