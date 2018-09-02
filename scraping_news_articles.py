@@ -367,3 +367,23 @@ all_urls = linear_layout_page(aditional_url_list)
 # Length of all urls
 # len(all_urls)
 
+
+# In[34]:
+
+
+## To be used for text retivring texts of articles
+article_urls_list = list(all_urls)
+
+
+# In[35]:
+
+
+df_final_urls = pd.DataFrame(article_urls_list)
+
+
+# In[36]:
+
+
+# Extracting all the urls to CSV file
+df_final_urls.to_csv("final_urls.csv")
+
