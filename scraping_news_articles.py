@@ -421,3 +421,15 @@ if len(article_urls_list) > 500:
 else:
     article_text_list = article_text(article_urls_list)
 
+
+# In[39]:
+
+
+text_df = pd.DataFrame(article_text_list)
+
+
+# In[40]:
+
+
+text_df.to_csv("articles_500.csv")
+
