@@ -387,3 +387,24 @@ df_final_urls = pd.DataFrame(article_urls_list)
 # Extracting all the urls to CSV file
 df_final_urls.to_csv("final_urls.csv")
 
+
+# In[37]:
+
+
+# Function to extract article text
+
+def article_text(article_urls):
+    """
+    It takes article urls list and scrap the 
+    texts from it. Finally, it returns the text
+    of the articles.
+    """
+    text = []
+    for i in article_urls:
+        article_soup = parse_html(request_url(i))
+        div = article_soup.find("div", class_="articleBody")
+        for child_div in div.find_all("div"):
+            child_div.decompose()
+        text.append(div.get_text())
+    return text
+

@@ -12575,6 +12575,34 @@ https://www.jagran.com/automobile
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Function to extract article text</span>
+
+<span class="k">def</span> <span class="nf">article_text</span><span class="p">(</span><span class="n">article_urls</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It takes article urls list and scrap the </span>
+<span class="sd">    texts from it. Finally, it returns the text</span>
+<span class="sd">    of the articles.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">article_urls</span><span class="p">:</span>
+        <span class="n">article_soup</span> <span class="o">=</span> <span class="n">parse_html</span><span class="p">(</span><span class="n">request_url</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+        <span class="n">div</span> <span class="o">=</span> <span class="n">article_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;articleBody&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">child_div</span> <span class="ow">in</span> <span class="n">div</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">):</span>
+            <span class="n">child_div</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+        <span class="n">text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">div</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">text</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
