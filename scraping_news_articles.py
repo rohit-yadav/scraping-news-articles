@@ -332,3 +332,10 @@ def navigator(navigate_url):
             next_page_set.add(next_page_url)
     return next_page_set
 
+
+# In[29]:
+
+
+# Function call to collect the links of different pages of the sections - List View sections only
+aditional_url_set = navigator(final_list_urls)
+
