@@ -296,3 +296,10 @@ def linear_layout_page(linear_url_list):
 # Funtion call to collect all the article urls - List View Sections
 all_urls = linear_layout_page(final_list_urls)
 
+
+# In[27]:
+
+
+# Count - after adding articles urls from list view sections
+# len(all_urls)
+
