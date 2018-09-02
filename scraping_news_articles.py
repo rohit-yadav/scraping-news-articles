@@ -346,3 +346,10 @@ aditional_url_set = navigator(final_list_urls)
 # Checking the length of the adtional urls from the pages of sections
 # len(aditional_url_set)
 
+
+# In[31]:
+
+
+# Converting the set into list
+aditional_url_list = list(aditional_url_set)
+
