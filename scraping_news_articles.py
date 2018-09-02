@@ -266,5 +266,6 @@ all_urls = collect(final_grid_urls)
 
 
 # Count the number of uniques aritcles urls
-len(all_urls)
+# Uncomment the below line to check the length
+# len(all_urls)
 
