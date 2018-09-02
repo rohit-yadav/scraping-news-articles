@@ -289,3 +289,10 @@ def linear_layout_page(linear_url_list):
         
     return all_urls
 
+
+# In[26]:
+
+
+# Funtion call to collect all the article urls - List View Sections
+all_urls = linear_layout_page(final_list_urls)
+
