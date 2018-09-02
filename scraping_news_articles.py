@@ -269,3 +269,23 @@ all_urls = collect(final_grid_urls)
 # Uncomment the below line to check the length
 # len(all_urls)
 
+
+# In[25]:
+
+
+# Collects the article urls of the List view sections
+def linear_layout_page(linear_url_list):
+    """
+    It takes urls of the list view sections and
+    extracts the article links, then it returns it.
+    """
+    for url in linear_url_list:
+        soup = parse_html(request_url(url))
+        ul = soup.find("div", class_="newsFJagran").ul
+
+        for li in ul.find_all("li"):
+            # Adding to the existing urls from the Grid View sections
+            all_urls.add(complete_url(li.a.get('href')))
+        
+    return all_urls
+

@@ -12373,6 +12373,33 @@ https://www.jagran.com/automobile
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Collects the article urls of the List view sections</span>
+<span class="k">def</span> <span class="nf">linear_layout_page</span><span class="p">(</span><span class="n">linear_url_list</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    It takes urls of the list view sections and</span>
+<span class="sd">    extracts the article links, then it returns it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">linear_url_list</span><span class="p">:</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">parse_html</span><span class="p">(</span><span class="n">request_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span>
+        <span class="n">ul</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;newsFJagran&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">ul</span>
+
+        <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">ul</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;li&quot;</span><span class="p">):</span>
+            <span class="c1"># Adding to the existing urls from the Grid View sections</span>
+            <span class="n">all_urls</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">complete_url</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">)))</span>
+        
+    <span class="k">return</span> <span class="n">all_urls</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
     </div>
   </div>
 </body>
