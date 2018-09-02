@@ -303,3 +303,32 @@ all_urls = linear_layout_page(final_list_urls)
 # Count - after adding articles urls from list view sections
 # len(all_urls)
 
+
+# In[28]:
+
+
+# Takes list of urls
+# Returns set with new set of urls
+def navigator(navigate_url):
+    """
+    It takes urls of the List View sections and then navigates 
+    to next page till the 10th page, along with it, it also add the page's url
+    to list. Finally, it returns the list of urls of the pages.
+    """
+    next_page_url = []
+    next_page_set = set()
+    for navigate in navigate_url:
+        soup = parse_html(request_url(navigate))
+        url_class =  soup.find(class_="last")
+        page_nav = url_class.a.get("href")
+        page_nav = complete_url(page_nav)
+        next_page_url = page_nav
+        for _ in range(10):
+            soup_next = parse_html(request_url(next_page_url))
+            url_class_next =  soup_next.find(class_="last")
+            page_nav_next = url_class_next.a.get("href")
+            page_nav_next = complete_url(page_nav_next)
+            next_page_url = page_nav_next
+            next_page_set.add(next_page_url)
+    return next_page_set
+
